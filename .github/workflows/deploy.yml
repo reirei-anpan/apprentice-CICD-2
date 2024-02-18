@@ -25,8 +25,8 @@ jobs:
       uses: easingthemes/ssh-deploy@v2.1.5
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        SSH_HOST: '13.112.68.176'
-        SSH_USERNAME: 'ec2-user'
+        REMOTE_HOST: '13.112.68.176'
+        REMOTE_USER: 'ec2-user'
         SOURCE: '.'
         TARGET: '/var/www/html/your-app-directory'
         EXCLUDE: '/.github/,/vendor/,/.env'
