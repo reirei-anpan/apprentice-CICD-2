@@ -28,5 +28,5 @@ jobs:
         REMOTE_HOST: '13.112.68.176'
         REMOTE_USER: 'ec2-user'
         SOURCE: '.'
-        TARGET: '/var/www/html/your-app-directory'
+        TARGET: '/home/ec2-user/apprentice-CICD-2'
         EXCLUDE: '/.github/,/vendor/,/.env'
