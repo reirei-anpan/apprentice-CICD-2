@@ -35,5 +35,4 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_PRIVATE_KEY_PATH }} ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "
           cd /home/ec2-user/apprentice-CICD-2 && \
-          nohup php -S 0.0.0.0:8080 -t . > /dev/null 2>&1 &
-    "
+          nohup php -S 0.0.0.0:8080 -t . > /dev/null 2>&1 &"
