@@ -25,8 +25,15 @@ jobs:
       uses: easingthemes/ssh-deploy@v2.1.5
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        REMOTE_HOST: '13.112.68.176'
-        REMOTE_USER: 'ec2-user'
+        REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+        REMOTE_USER:  ${{ secrets.REMOTE_USER }}
         SOURCE: '.'
         TARGET: '/home/ec2-user/apprentice-CICD-2'
         EXCLUDE: '/.github/,/vendor/,/.env'
+
+    - name: Deploy and Start PHP Built-in Server
+      run: |
+        ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_PRIVATE_KEY_PATH }} ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "
+          cd /home/ec2-user/apprentice-CICD-2 && \
+          nohup php -S 0.0.0.0:8080 -t . > /dev/null 2>&1 &
+    "
